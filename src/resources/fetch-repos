@@ -1,6 +1,13 @@
+## {USERNAME} = Your bitbucket / git username
+## {APP PASSWORD} = Your password generated with read permissions
+## {WORKSPACE_NAME} = The workspace you wish to clone the repos
+
+## if you wish rewrite this to nodejs syntax
+
+
 echo "Starting Fetching all JSON data" 
-credential="nicolasian:8pS4pYyNnz3FaSU6LDPG"
-WORKSPACE=([0]="avanticomunicacao")
+credential="{USERNAME}:{APP PASSWORD}"
+WORKSPACE=([0]="{WORSPACE_NAME}")
 for i in ${WORKSPACE[@]}; 
 do 
     count=1
