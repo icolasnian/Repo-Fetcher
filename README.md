@@ -2,7 +2,7 @@
 Fetch all repos inside git workspace
 
 ## Description
-This is a script very useful to clone multiple repos automatically.
+This is a very useful script to clone multiple repos automatically.
 
 ## Usage
 Inside resources/fetch-repos, you need to set your credentials, those being username / app password (bitbucket) and desired workspace.
