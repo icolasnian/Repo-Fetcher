@@ -1,0 +1,22 @@
+echo "Starting Fetching all JSON data" 
+credential="nicolasian:8pS4pYyNnz3FaSU6LDPG"
+WORKSPACE=([0]="avanticomunicacao")
+for i in ${WORKSPACE[@]}; 
+do 
+    count=1
+    increment=1
+    #FETCH REPOS
+    while :
+    do 
+        if [[ "$(curl -u ${credential} 'https://api.bitbucket.org/2.0/repositories/'$i'/?pagelen=100&page='$count'&fields=next,values.links.branches.href,values.full_name')" == '{"values": []}' ]];
+        then 
+            curl -u ${credential} 'https://api.bitbucket.org/2.0/repositories/'$i'/?pagelen=100&page='$count'&fields=next,values.links.branches.href,values.full_name'
+            echo "Done"
+            exit 0
+        fi 
+        curl -u ${credential} 'https://api.bitbucket.org/2.0/repositories/'$i'/?pagelen=100&page='$count'&fields=next,values.links.branches.href,values.full_name'  > data.json
+
+        echo "$count"
+        count=`expr $count + $increment`
+    done
+done
